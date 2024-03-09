@@ -15,7 +15,25 @@ public class unionOfTwoSortedArrays {
             arr2[j] = sc.nextInt();
         }
         List<Integer> res = OptimalSol(arr1,arr2);
+        //List<Integer> res = BruteForce(arr1,arr2);
         System.out.println(res);
+    }
+    public static List<Integer> BruteForce(int[] arr1, int[] arr2){
+        int n = arr1.length;
+        int m = arr2.length;
+        HashSet<Integer> set = new HashSet<>();
+        List<Integer> union = new ArrayList<>();
+        for (int j : arr1) {
+            set.add(j);
+        }
+        for (int i : arr2) {
+            set.add(i);
+        }
+//        for(int it : set){
+//            union.add(it);
+//        }
+        union.addAll(set);//we can use instead of above itereation
+        return union;
     }
     public static List<Integer> OptimalSol(int[] arr1 , int[] arr2){
         int n = arr1.length;
